@@ -38,6 +38,9 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        /* $form_data = $request->validated();
+        $newProject = Project::create($form_data);
+        return redirect()->route('admin.projects.show', $newProject->id)->with('message', "Project {$newProject->id} successfully created"); */
     }
 
     /**
@@ -71,9 +74,9 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $form_data = $request->validated();
+        /* $form_data = $request->validated();
         $project->update($form_data);
-        return redirect()->route('projects.show', $project->id);
+        return redirect()->route('admin.projects.show', $project->slug); */
     }
 
     /**
