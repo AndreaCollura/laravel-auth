@@ -29,7 +29,6 @@
                                                     </td>
                                                     <td class="d-none d-md-table-cell">{{ $project->date }}</td>
                                                     <td class="d-none d-md-table-cell">{{ $project->git }}</td>
-
                                                 </tr>
                                             @endforeach
                                         </tbody>
