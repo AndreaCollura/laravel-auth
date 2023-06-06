@@ -3,7 +3,8 @@
 
 @section('content')
     <div class="container my-5">
-        <form class="row g-3" action="{{ route('admin.projects.update', $project->id) }}" method="POST">
+        <h2 class="text-capitalize mb-3">edit project {{ $project->title }}</h2>
+        <form class="row g-3" action="{{ route('admin.projects.update', $project->slug) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="col-md-6">

@@ -6,7 +6,7 @@
         <h2 class="text-capitalize mb-3">add new project</h2>
         <form class="row g-3" action="{{ route('admin.projects.store') }} " method="POST">
             @csrf
-            @method('PUT')
+
             <div class="col-md-6">
                 <div id="titleHelp" class="form-text">Edit title here</div>
                 <label for="title" class="form-label"></label>
@@ -47,7 +47,7 @@
                 @enderror
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-primary">Create</button>
                 <button type="reset" class="btn btn-primary">Reset</button>
             </div>
         </form>

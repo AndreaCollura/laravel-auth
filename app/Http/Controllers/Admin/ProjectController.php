@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -38,9 +39,11 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        /* $form_data = $request->validated();
+        $form_data = $request->validated();
+        $slug = Str::slug($form_data['title'], '-');
+        $form_data['slug'] = $slug;
         $newProject = Project::create($form_data);
-        return redirect()->route('admin.projects.show', $newProject->id)->with('message', "Project {$newProject->id} successfully created"); */
+        return redirect()->route('admin.projects.show', $newProject->slug)->with('message', "Project {$newProject->slug} successfully created");
     }
 
     /**
@@ -74,9 +77,11 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        /* $form_data = $request->validated();
+        $form_data = $request->validated();
+        $slug = Str::slug($request->title, '-');
+        $form_data['slug'] = $slug;
         $project->update($form_data);
-        return redirect()->route('admin.projects.show', $project->slug); */
+        return redirect()->route('admin.projects.show', $project->slug)->with('message', "Project {$project->slug} successfully edited");
     }
 
     /**
